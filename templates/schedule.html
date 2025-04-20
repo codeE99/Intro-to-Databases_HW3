@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>Schedule for Student ID: {{ student_id }}</h1>
+
+<form method="GET">
+    <label for="year">Filter by Year:</label>
+    <select name="year" id="year" onchange="this.form.submit()">
+        <option value="">All Years</option>
+        {% for year in years %}
+        <option value="{{ year }}">{{ year }}</option>
+        {% endfor %}
+    </select>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Course ID</th>
+            <th>Semester</th>
+            <th>Year</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in schedule_data %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+   
+<a href="{{ url_for('home') }}">Go back to Home</a>
+{% endblock %}

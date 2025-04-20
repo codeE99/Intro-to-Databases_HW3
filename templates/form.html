@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>Student Search Page</h2>
+<p>Hi, {{ username }} fill out the form below to search for your fellow students.</p>
+<form action="/search" method = "POST">
+	<p><h2>Student Search:</h2> 
+	<p>Name <input type="text" name = "name" /></p>
+	<p>ID <input type = "integer" name = "id" /></p>
+	<p><input type = "submit" value = "Submit" /></p>
+</form>
+{% endblock %}
